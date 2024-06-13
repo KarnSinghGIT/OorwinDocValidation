@@ -120,7 +120,7 @@ with col_center5:
             # st.write('Document validated')
             text=validate_document(temp_template_file,temp_input_file)
             st.success(text)
-            st.success("Testing: Document is compatible")
+            # st.success("Testing: Document is compatible")
         else:
             st.error('Please upload both the template file and the input file.')
         
