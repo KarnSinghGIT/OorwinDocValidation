@@ -16,10 +16,9 @@ endpoint = os.getenv("AZURE_FORM_RECOGNIZER_ENDPOINT")
 key = os.getenv("AZURE_FORM_RECOGNIZER_KEY")
 openai_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 azure_openai_api_key = os.getenv("AZURE_OPENAI_API_KEY")
-openai_api_key = os.getenv("OPENAI_API_KEY")
 
 OPENAI_MODEL = 'gpt-3.5-turbo-0613'
-client = openai.OpenAI()
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # if not endpoint or not key or not openai_endpoint or not openai_api_key:
 #     raise ValueError("Missing required environment variables for Azure services.")
