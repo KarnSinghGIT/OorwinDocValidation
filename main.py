@@ -38,21 +38,40 @@ st.markdown(
     .custom-button:hover {
         background-color: #45a049;
     }
+    .center-align {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-temp_dir = "temp_dir"
-# Title for the document validation section
-st.title('Document Validation')
 
+# Center the main header using HTML and Markdown
+# st.markdown(
+#     """
+#     <h1 style='text-align: center;'>Oorwin Document Validator</h1>
+#     """, 
+#     unsafe_allow_html=True
+# )
+# Title for the document validation section
+st.subheader('Document Validation')
+
+temp_dir = "temp_dir"
 # Export License Template section
-col1, col2, col3 = st.columns([2, 2, 2])
+st.markdown('<div class="center-align">', unsafe_allow_html=True)
+
+col1, col2 , col3 = st.columns([2, 3, 2])
 with col1:
+    st.write("") 
+    st.write("") 
     st.markdown("**Export License Template**")
+
 with col2:
     template_file = st.file_uploader('', key='template_file')
+st.markdown('</div>', unsafe_allow_html=True)
 
 
 temp_template_file=""
@@ -66,15 +85,20 @@ if template_file is not None:
         f.write(template_file.getbuffer())
         # st.write(temp_template_file)
         
-# Centered Validate button
-col_center1, col_center2, col_center3 = st.columns([3, 1, 3])
 
 # Export License Document section
-col4, col5, col6 = st.columns([2, 2, 2])
-with col4:
+st.markdown('<div class="center-align">', unsafe_allow_html=True)
+
+col1, col2 , col3 = st.columns([2, 3, 2])
+with col1:
+    st.write("") 
+    st.write("") 
     st.markdown("**Export License Document**")
-with col5:
+
+with col2:
     input_file = st.file_uploader('', key='input_file')
+st.markdown('</div>', unsafe_allow_html=True)
+
 
 temp_input_file=""
 if input_file is not None:
@@ -95,7 +119,8 @@ with col_center5:
         if temp_template_file and temp_input_file:
             # st.write('Document validated')
             text=validate_document(temp_template_file,temp_input_file)
-            st.markdown(text)
+            st.success(text)
+            st.success("Testing: Document is compatible")
         else:
             st.error('Please upload both the template file and the input file.')
         
@@ -106,14 +131,19 @@ with col_center5:
 st.markdown('---')
 
 # Title for the document verification section
-st.title('Document Verification')
+st.subheader('Document Verification')
 
 # Export License Document verification section
-col7, col8, col9 = st.columns([2, 2, 2])
-with col7:
+col1, col2 , col3 = st.columns([2, 3, 2])
+with col1:
+    st.write("") 
+    st.write("") 
     st.markdown("**Export License Document**")
-with col8:
+
+with col2:
     verify_document_file = st.file_uploader('', key='verify_document_file')
+st.markdown('</div>', unsafe_allow_html=True)
+
 
 temp_verify_document_file=""
 if verify_document_file is not None:
