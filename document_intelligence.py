@@ -19,7 +19,7 @@ azure_openai_api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 OPENAI_MODEL = 'gpt-3.5-turbo-0613'
-client = openai.OpenAI(api_key=openai_api_key)
+client = openai.OpenAI()
 
 # if not endpoint or not key or not openai_endpoint or not openai_api_key:
 #     raise ValueError("Missing required environment variables for Azure services.")
