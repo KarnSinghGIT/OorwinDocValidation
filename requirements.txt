@@ -1,0 +1,6 @@
+streamlit
+flask
+openai
+azure-ai-formrecognizer
+azure-core
+python-dotenv
